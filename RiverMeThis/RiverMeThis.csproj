@@ -6,9 +6,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200928232007_RiverMeThisInit.cs" />
+    <Compile Remove="Migrations\20200928232007_RiverMeThisInit.Designer.cs" />
+    <Compile Remove="Migrations\20200928235504_CreateRiverMeThisDB.cs" />
+    <Compile Remove="Migrations\20200928235504_CreateRiverMeThisDB.Designer.cs" />
+    <Compile Remove="Migrations\20200929125911_CreateRiverMeThisDb.cs" />
+    <Compile Remove="Migrations\20200929125911_CreateRiverMeThisDb.Designer.cs" />
+    <Compile Remove="Migrations\20200929132706_CreateRMTDb.cs" />
+    <Compile Remove="Migrations\20200929132706_CreateRMTDb.Designer.cs" />
+    <Compile Remove="Migrations\20200929133228_CreatInitialDB.cs" />
+    <Compile Remove="Migrations\20200929133228_CreatInitialDB.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
       <PrivateAssets>all</PrivateAssets>

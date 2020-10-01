@@ -1,0 +1,57 @@
+﻿@model RiverMeThis.Models.FloatTripViewModels.FloatTripCreateViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create A New Float Trip</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="floatTrip.Title" class="control-label"></label>
+                <input asp-for="floatTrip.Title" class="form-control" />
+                <span asp-validation-for="floatTrip.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="floatTrip.Date" class="control-label"></label>
+                <input asp-for="floatTrip.Date" class="form-control" />
+                <span asp-validation-for="floatTrip.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="floatTrip.NumberOfFloaters" class="control-label">No. of Floaters</label>
+                <input asp-for="floatTrip.NumberOfFloaters" class="form-control" />
+                <span asp-validation-for="floatTrip.NumberOfFloaters" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="floatTrip.NeedASherpa" /> Check if you want a Sherpa for this float
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="floatTrip.Device.Type" class="control-label">Device</label>
+                <select asp-for="floatTrip.DeviceId" asp-items="@Model.devices"></select>
+                <span asp-validation-for="floatTrip.DeviceId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="floatTrip.River.Name" class="control-label">River</label>
+                <select asp-for="floatTrip.RiverId" asp-items="@Model.rivers"></select>
+                <span asp-validation-for="floatTrip.RiverId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Choose Put-In/Take-Out" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

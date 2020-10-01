@@ -9,6 +9,10 @@ namespace RiverMeThis.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public ApplicationUser()
+        {
+
+        }
         [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
@@ -21,6 +25,6 @@ namespace RiverMeThis.Models
         [Display(Name = "Street Address")]
         public string StreetAddress { get; set; }
 
-        public virtual ICollection<Floats> Floats { get; set; }
+        public virtual ICollection<FloatTrip> FloatTrips { get; set; }
     }
 }

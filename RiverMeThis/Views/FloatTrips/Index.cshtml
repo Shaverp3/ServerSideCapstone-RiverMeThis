@@ -1,0 +1,78 @@
+﻿@model IEnumerable<RiverMeThis.Models.FloatTrip>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Floats</h1>
+
+<p>
+    <a asp-action="Create">Create New Float Trip</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.River)
+            </th>
+            <th>
+                No. of Floaters
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Device)
+            </th>
+            <th>
+                Put-In
+            </th>
+            <th>
+                Take-Out
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.River.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfFloaters)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Device.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PutInAP.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TakeOutAP.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FloatTripId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FloatTripId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FloatTripId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

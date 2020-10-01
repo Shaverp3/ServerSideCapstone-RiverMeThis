@@ -1,0 +1,54 @@
+﻿@model RiverMeThis.Models.FloatTripViewModels.AccessPointsPickViewModel
+
+@{
+    ViewData["Title"] = "PicAPs";
+}
+
+@if (Model.riverId <= 3)
+{
+    <img src="~/images/CoalRiverWaterTrail.jpg" style="width:80vw; height:auto" />
+}
+else if (Model.riverId == 4)
+{
+    <img src="~/images/ElkRiverWaterTrail.jpg" style="width:80vw; height:auto"/>
+
+}
+else
+{
+    <img src="~/images/GuyandotteRiverTrailMap.jpg" style="width:80vw; height:auto"/>
+}
+
+<h5>Select your Put-In and Take-Out for this Float Trip</h5>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PicAPs">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="floatTrip.FloatTripId" />
+            <input type="hidden" asp-for="floatTrip.UserId" />
+            <input type="hidden" asp-for="floatTrip.User" />
+            <input type="hidden" asp-for="floatTrip.Title" />
+            <div class="form-group">
+                <div class="form-group">
+                    <label asp-for="floatTrip.PutInAPId" class="control-label">Select Put-In</label>
+                    <select asp-for="floatTrip.PutInAPId" asp-items="Model.putIns"></select>
+                    <span asp-validation-for="floatTrip.PutInAPId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="floatTrip.TakeOutAPId" class="control-label">Select Take-Out</label>
+                    <select asp-for="floatTrip.TakeOutAPId" asp-items="Model.takeOuts"></select>
+                    <span asp-validation-for="floatTrip.TakeOutAPId" class="text-danger"></span>
+                </div>
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
