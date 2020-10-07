@@ -27,7 +27,8 @@ namespace RiverMeThis.Controllers
         // GET: FloatTrips
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.FloatTrip.Include(f => f.Device).Include(f => f.PutInAP).Include(f => f.River).Include(f => f.Sherpa).Include(f => f.TakeOutAP).Include(f => f.User);
+            var user = await GetCurrentUserAsync();
+            var applicationDbContext = _context.FloatTrip.Include(f => f.Device).Include(f => f.PutInAP).Include(f => f.River).Include(f => f.Sherpa).Include(f => f.TakeOutAP).Include(f => f.User).OrderBy(f => f.Date).Where(r => r.UserId == user.Id);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -125,7 +126,11 @@ namespace RiverMeThis.Controllers
                 return NotFound();
             }
 
-            var floatTrip = await _context.FloatTrip.FindAsync(id);
+
+            var floatTrip = await _context.FloatTrip
+                .Include(f => f.User)
+                .FirstOrDefaultAsync(m => m.FloatTripId == id);
+
             if (floatTrip == null)
             {
                 return NotFound();
@@ -145,33 +150,35 @@ namespace RiverMeThis.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FloatTripId,Title,Date,Distance,NumberOfFloaters,Duration,Notes,Rating,PicPath,NeedASherpa,UserId,RiverId,PutInAPId,TakeOutAPId,DeviceId,SherpaId")] FloatTrip floatTrip)
+        public async Task<IActionResult> Edit(int id, [Bind("FloatTripId,Title,Date,Distance,NumberOfFloaters,Duration,Notes,Rating,PicPath,NeedASherpa,UserId,User,RiverId,PutInAPId,TakeOutAPId,DeviceId,SherpaId")] FloatTrip floatTrip)
         {
+
             if (id != floatTrip.FloatTripId)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+            //{
+            try
             {
-                try
-                {
-                    _context.Update(floatTrip);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!FloatTripExists(floatTrip.FloatTripId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                _context.Update(floatTrip);
+                await _context.SaveChangesAsync();
             }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!FloatTripExists(floatTrip.FloatTripId))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+        
+            return RedirectToAction(nameof(Index));
+
             ViewData["DeviceId"] = new SelectList(_context.Device, "DeviceId", "Type", floatTrip.DeviceId);
             ViewData["PutInAPId"] = new SelectList(_context.AccessPoint, "AccessPointId", "AccessPointId", floatTrip.PutInAPId);
             ViewData["RiverId"] = new SelectList(_context.River, "RiverId", "RiverId", floatTrip.RiverId);

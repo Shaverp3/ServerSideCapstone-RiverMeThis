@@ -4,75 +4,37 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Floats</h1>
+<div class="text-center">
+    <h1 class="display-4" style="font-family:Akronim">River Me This...</h1>
+    <h3 class="display-4" style="font-family:Akronim">Floats</h3>
+    <p>
+        <a asp-action="Create" style="color: #247BA0">Create New Float Trip</a>
+    </p>
+</div>
 
-<p>
-    <a asp-action="Create">Create New Float Trip</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.River)
-            </th>
-            <th>
-                No. of Floaters
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Device)
-            </th>
-            <th>
-                Put-In
-            </th>
-            <th>
-                Take-Out
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rating)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.River.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumberOfFloaters)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Device.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PutInAP.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TakeOutAP.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-
-            <td>
+<div class="card-columns">
+    @foreach (var item in Model)
+    {
+        <div class="card" style="height:auto;">
+            @*<div class="card-img" style="background-image:url('@item.River.MapPath')"></div>*@
+            <div class="card-body"style="font-family: Merienda;font-size: 12px;height: auto;background-color: #C4FFF9;">
+                <h6 class="card-title">
+                    @Html.DisplayFor(modelItem => item.Date)
+                    @Html.DisplayFor(modelItem => item.Title)
+                </h6>
+                @Html.DisplayFor(modelItem => item.River.Name)<br />
+                @*@Html.DisplayFor(modelItem => item.NumberOfFloaters)*@
+                @*@Html.DisplayFor(modelItem => item.Device.Type)*@
+                Put-In: @Html.DisplayFor(modelItem => item.PutInAP.Name)<br />
+                Take-Out: @Html.DisplayFor(modelItem => item.TakeOutAP.Name)<br />
+                Rating: @Html.DisplayFor(modelItem => item.Rating)
+            </div>
+            <div style="text-align:center; font-size:12px;color: #07BEB8;">
                 <a asp-action="Edit" asp-route-id="@item.FloatTripId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.FloatTripId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.FloatTripId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+            </div>
+        </div>
+        
+        }
+</div>
