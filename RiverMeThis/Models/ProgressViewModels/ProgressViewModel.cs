@@ -20,12 +20,11 @@ namespace RiverMeThis.Models.ProgressViewModels
         public float ?DistanceTraveledOnRiver4 { get; set; }
         public River River5 { get; set; }
         public float ?DistanceTraveledOnRiver5 { get; set; }
-
-        // public River ElkRiver
-        // public int DistanceTraveledOnRiver1
-        // public River River2
-        // public int DistanceTraveledOnRiver2
-
+        public string PercentofRiver1 { get; set; }
+        public string PercentofRiver2 { get; set; }
+        public string PercentofRiver3 { get; set; }
+        public string PercentofRiver4 { get; set; }
+        public string PercentofRiver5 { get; set; }
 
     }
 }

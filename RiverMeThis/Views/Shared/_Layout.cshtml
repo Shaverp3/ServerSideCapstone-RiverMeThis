@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar-expand-sm navbar-toggleable-sm bg-navbar box-shadow mb-3" style="padding:0; width:100vw;">
             <div class="container" style="margin-left:1em;">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="padding:0;font-size: 40px">River Me This</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="padding:0;font-size: 40px">River Me This...</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@
                         <li class="nav-item" style="margin-left:5em;">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        
+
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <li class="nav-item" style="margin-left:2em;">
@@ -58,6 +58,7 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
