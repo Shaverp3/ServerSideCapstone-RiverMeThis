@@ -17,7 +17,10 @@ for details on configuring this project to bundle and minify static web assets. 
     font-family: 'Nunito', sans-serif;
     background: #fbfafd;
 }
-
+.w-100 {
+    width: 100% !important;
+    height: 75vh;
+}
 .card-columns .card-img {
     height: 330px;
     vertical-align: bottom;
