@@ -5,10 +5,10 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4" style="font-family:Akronim">River Me This...</h1>
-    <h3 class="display-4" style="font-family:Akronim">Floats</h3>
+    @*<h1 class="display-4" style="font-family:Akronim">River Me This...</h1>*@
+    <h6 class="display-4" style="font-family: Akronim;font-size: 2em;color: #247BA0;">Floats</h6>
     <p>
-        <a asp-action="Create" style="color: #247BA0">Create New Float Trip</a>
+        <a asp-action="Create" style="color: #247BA0">Plan A Float Trip</a>
     </p>
 </div>
 
@@ -17,7 +17,7 @@
     {
         <div class="card" style="height:auto;">
             @*<div class="card-img" style="background-image:url('@item.River.MapPath')"></div>*@
-            <div class="card-body"style="font-family: Merienda;font-size: 12px;height: auto;background-color: #C4FFF9;">
+            <div class="card-body"style="font-family: Merienda;font-size: 12px;height: auto;background-color: #9CEAEF;">
                 <h6 class="card-title">
                     @Html.DisplayFor(modelItem => item.Date)
                     @Html.DisplayFor(modelItem => item.Title)
@@ -29,7 +29,7 @@
                 Take-Out: @Html.DisplayFor(modelItem => item.TakeOutAP.Name)<br />
                 Rating: @Html.DisplayFor(modelItem => item.Rating)
             </div>
-            <div style="text-align:center; font-size:12px;color: #07BEB8;">
+            <div style="text-align: center;font-size: 12px;color: #247BA0;">
                 <a asp-action="Edit" asp-route-id="@item.FloatTripId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.FloatTripId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.FloatTripId">Delete</a>

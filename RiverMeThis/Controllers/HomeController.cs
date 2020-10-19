@@ -62,7 +62,7 @@ namespace RiverMeThis.Controllers
                     }
                 }
                 viewModel.DistanceTraveledOnRiver1 = totalMilesR1;
-                ProgressBarR1 = (totalMilesR1 / TotalLengthR1) * 100;
+                ProgressBarR1 = totalMilesR1 / TotalLengthR1 * 100;
                 viewModel.PercentofRiver1 = $"{Math.Round((decimal)ProgressBarR1)}%";
 
                 var River2Total = await _context.FloatTrip.Include(f => f.River).Include(f => f.User).Where(r => r.UserId == user.Id && r.RiverId == 2)

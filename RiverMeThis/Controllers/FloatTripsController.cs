@@ -77,7 +77,7 @@ namespace RiverMeThis.Controllers
             }
             ).ToList();
 
-            ViewModel.devices.Insert(0, new SelectListItem() { Value = "0", Text = "--Select A Device" });
+            ViewModel.devices.Insert(0, new SelectListItem() { Value = "0", Text = "--Select A Device--" });
 
             return View(ViewModel);
         }

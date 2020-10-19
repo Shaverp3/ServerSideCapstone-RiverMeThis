@@ -4,11 +4,11 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4" style="font-family:Akronim">River Me This...</h1>
+    <h2 class="display-4" style="font-family:Akronim">River Me This...</h2>
 
 </div>
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
     <!-- Indicators -->
     <ul class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -21,9 +21,9 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class="d-block w-100" src="~/images/Coal-River.jpg" alt="Big Coal to Coal River" style="height: 50vh;">
-            <div class="carousel-caption">
-                <h3 style="font-family: Merienda; font-size: 20px;">@Model.River1.Name</h3>
+            <img class="d-block w-100" src="~/images/Coal-River.jpg" alt="Big Coal River" style="height: 50vh;">
+            <div class="carousel-caption" style="color: #ff0303;font-weight: bold;">
+                <h3 style="font-family: Merienda; font-size: 20px; font-weight:bold;">@Model.River1.Name</h3>
 
                 <p> You have floated @Model.DistanceTraveledOnRiver1 miles out of @Model.River1.TotalLength miles</p>
                 <div class="progress">
@@ -37,8 +37,8 @@
 
         <div class="carousel-item">
             <img class="d-block w-100" src="~/images/Coal-River3.jpg" alt="Little Coal to Coal River" style="height: 50vh;">
-            <div class="carousel-caption">
-                <h3 style="font-family: Merienda; font-size: 20px;">@Model.River2.Name</h3>
+            <div class="carousel-caption" style="color: #ffeb01;font-weight: bold;">
+                <h3 style="font-family: Merienda; font-size: 20px;font-weight:bold;">@Model.River2.Name</h3>
                 <p> You have floated @Model.DistanceTraveledOnRiver2 miles out of @Model.River2.TotalLength miles</p>
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped active" role="progressbar"
@@ -51,8 +51,8 @@
 
         <div class="carousel-item">
             <img class="d-block w-100" src="~/images/Coal-River2.jpg" alt="Coal River" style="height: 50vh;">
-            <div class="carousel-caption">
-                <h3 style="font-family: Merienda; font-size: 20px;">@Model.River3.Name</h3>
+            <div class="carousel-caption" style="color: #ff0303;font-weight: bold">
+                <h3 style="font-family: Merienda;font-size: 20px;font-weight: bold;">@Model.River3.Name</h3>
                 <p> You have floated @Model.DistanceTraveledOnRiver3 miles out of @Model.River3.TotalLength miles</p>
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped active" role="progressbar"
@@ -65,8 +65,8 @@
 
         <div class="carousel-item">
             <img class="d-block w-100" src="~/images/ElkRiver.jpg" alt="Elk River" style="height: 50vh;">
-            <div class="carousel-caption">
-                <h3 style="font-family: Merienda; font-size: 20px;">@Model.River4.Name</h3>
+            <div class="carousel-caption" style="color: #ff0303; font-weight: bold;">
+                <h3 style="font-family: Merienda; font-size: 20px; font-weight:bold;">@Model.River4.Name</h3>
                 <p> You have floated @Model.DistanceTraveledOnRiver4 miles out of @Model.River4.TotalLength miles</p>
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped active" role="progressbar"
@@ -79,8 +79,8 @@
 
         <div class="carousel-item">
             <img class="d-block w-100" src="~/images/Guyandotte-River.jpg" alt="Gyandotte River" style="height: 50vh;">
-            <div class="carousel-caption">
-                <h3 style="font-family: Merienda; font-size: 20px;">@Model.River5.Name</h3>
+            <div class="carousel-caption" style="color: #ffeb01;font-weight: bold;">
+                <h3 style="font-family: Merienda; font-size: 20px;font-weight:bold;">@Model.River5.Name</h3>
                 <p> You have floated @Model.DistanceTraveledOnRiver5 miles out of @Model.River5.TotalLength miles</p>
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped active" role="progressbar"
